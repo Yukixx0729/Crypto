@@ -13,21 +13,23 @@ datasource db {
 
 model Crypto{
   id String @id @default(uuid())
-  name String
+  name String @unique
   Symbol String
   data Data[]
 }
 
 model Data{
   id String @id @default(uuid())
-  date String
-  high Int
-  low Int
-  open Int
-  close Int
-  volume Int
-  marketCap Int
+  date DateTime
+  high Float
+  low Float
+  open Float
+  close Float
+  volume Float
+  marketCap Float
   crypto  Crypto @relation(fields:[cryptoId],references: [id])
   cryptoId String
-
+  onedayChange Float?
+  sevendaysChange Float?
+  onemonthChange Float?
 }

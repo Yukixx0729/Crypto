@@ -10,17 +10,23 @@ CREATE TABLE "Crypto" (
 -- CreateTable
 CREATE TABLE "Data" (
     "id" TEXT NOT NULL,
-    "date" TEXT NOT NULL,
-    "high" INTEGER NOT NULL,
-    "low" INTEGER NOT NULL,
-    "open" INTEGER NOT NULL,
-    "close" INTEGER NOT NULL,
-    "volume" INTEGER NOT NULL,
-    "marketCap" INTEGER NOT NULL,
+    "date" TIMESTAMP(3) NOT NULL,
+    "high" DOUBLE PRECISION NOT NULL,
+    "low" DOUBLE PRECISION NOT NULL,
+    "open" DOUBLE PRECISION NOT NULL,
+    "close" DOUBLE PRECISION NOT NULL,
+    "volume" DOUBLE PRECISION NOT NULL,
+    "marketCap" DOUBLE PRECISION NOT NULL,
     "cryptoId" TEXT NOT NULL,
+    "onedayChange" DOUBLE PRECISION,
+    "sevendaysChange" DOUBLE PRECISION,
+    "onemonthChange" DOUBLE PRECISION,
 
     CONSTRAINT "Data_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Crypto_name_key" ON "Crypto"("name");
 
 -- AddForeignKey
 ALTER TABLE "Data" ADD CONSTRAINT "Data_cryptoId_fkey" FOREIGN KEY ("cryptoId") REFERENCES "Crypto"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
