@@ -32,4 +32,5 @@ model Data{
   onedayChange Float?
   sevendaysChange Float?
   onemonthChange Float?
+  name String
 }

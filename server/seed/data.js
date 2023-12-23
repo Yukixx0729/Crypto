@@ -56,10 +56,11 @@ const insertDataIntoDatabase = async (data) => {
         i > 29 && data[i - 30].Close !== 0
           ? (data[i].Close - data[i - 30].Close) / data[i - 30].Close
           : null;
+
       //insert all data
       await prisma.data.create({
         data: {
-          date: new Date(data[i].Date),
+          date: new Date(data[i].Date.slice(0, 10)),
           high: Number(data[i].High),
           low: Number(data[i].Low),
           open: Number(data[i].Open),
@@ -70,6 +71,7 @@ const insertDataIntoDatabase = async (data) => {
           onedayChange,
           sevendaysChange,
           onemonthChange,
+          name: cryptoData.name,
         },
       });
     }

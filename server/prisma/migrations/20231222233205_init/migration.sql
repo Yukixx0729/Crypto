@@ -21,6 +21,7 @@ CREATE TABLE "Data" (
     "onedayChange" DOUBLE PRECISION,
     "sevendaysChange" DOUBLE PRECISION,
     "onemonthChange" DOUBLE PRECISION,
+    "name" TEXT NOT NULL,
 
     CONSTRAINT "Data_pkey" PRIMARY KEY ("id")
 );
