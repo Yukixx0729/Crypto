@@ -14,7 +14,7 @@ const CryptoData = () => {
       const date = location.state?.date;
       if (date) {
         const res = await fetch(
-          `${API_URL}/api/crypto/name/${cryptoname}?date=${date}`
+          `${API_URL}/crypto/name/${cryptoname}?date=${date}`
         );
         const data = await res.json();
         setCryptoData(data);

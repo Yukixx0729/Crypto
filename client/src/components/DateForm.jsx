@@ -15,7 +15,7 @@ const DateForm = () => {
     setCryptoData(null);
     setError(false);
     if (date.length) {
-      const res = await fetch(`${API_URL}/api/crypto/date/${date}`);
+      const res = await fetch(`${API_URL}/crypto/date/${date}`);
       const data = await res.json();
       setCryptoData(data);
     } else {
@@ -30,7 +30,7 @@ const DateForm = () => {
       setDate(storedDate);
       if (storedDate) {
         // console.log(date, dateStore);
-        const res = await fetch(`${API_URL}/api/crypto/date/${storedDate}`);
+        const res = await fetch(`${API_URL}/crypto/date/${storedDate}`);
         const data = await res.json();
         setCryptoData(data);
       }
