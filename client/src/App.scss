@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;1,700&display=swap");
+
+boby {
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+}
+
+h1 {
+  font-weight: 700;
+  font-style: italic;
+  text-align: center;
+}
+
+.form-container {
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  margin-top: 2rem;
+  div {
+    color: red;
+    padding: 1rem;
+    font-size: 15px;
+  }
+  input {
+    font-size: 20px;
+  }
+  button {
+    margin-left: 1rem;
+    font-size: 20px;
+    text-decoration: none;
+    box-shadow: 1px 3px 3px grey;
+    border-radius: 5px;
+  }
+  button:hover {
+    cursor: pointer;
+  }
+  button:active {
+    box-shadow: none;
+    transform: scale3d(1px 2px);
+  }
+}
+
+.ag-theme-quartz {
+  margin-top: 1.5rem;
+  font-size: 13px;
+  p {
+    text-align: center;
+  }
+
+  button {
+    background-color: white;
+    border: none;
+    font-weight: bold;
+  }
+  button:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: blue;
+  }
+}
+
+.crypto-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .sub-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  button {
+    margin-top: 3rem;
+    font-size: 15px;
+    padding: 0.5rem;
+    text-decoration: none;
+    box-shadow: 1px 3px 3px grey;
+    border-radius: 5px;
+  }
+  button:hover {
+    cursor: pointer;
+  }
+  button:active {
+    box-shadow: none;
+    transform: scale3d(1px 2px);
+  }
+}
