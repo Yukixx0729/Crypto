@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import DateData from "./DateData";
+const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 
 const DateForm = () => {
   const [date, setDate] = useState("");
@@ -14,9 +15,7 @@ const DateForm = () => {
     setCryptoData(null);
     setError(false);
     if (date.length) {
-      const res = await fetch(
-        `https://energetic-rule-production.up.railway.app/api/crypto/date/${date}`
-      );
+      const res = await fetch(`${API_URL}/api/crypto/date/${date}`);
       const data = await res.json();
       setCryptoData(data);
     } else {
@@ -31,9 +30,7 @@ const DateForm = () => {
       setDate(storedDate);
       if (storedDate) {
         // console.log(date, dateStore);
-        const res = await fetch(
-          `https://energetic-rule-production.up.railway.app/api/crypto/date/${storedDate}`
-        );
+        const res = await fetch(`${API_URL}/api/crypto/date/${storedDate}`);
         const data = await res.json();
         setCryptoData(data);
       }

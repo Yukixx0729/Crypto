@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-
+const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 const CryptoData = () => {
   const [isPending, setIsPending] = useState(false);
   const { cryptoname } = useParams();
@@ -14,7 +14,7 @@ const CryptoData = () => {
       const date = location.state?.date;
       if (date) {
         const res = await fetch(
-          `https://energetic-rule-production.up.railway.app/api/crypto/name/${cryptoname}?date=${date}`
+          `${API_URL}/api/crypto/name/${cryptoname}?date=${date}`
         );
         const data = await res.json();
         setCryptoData(data);
