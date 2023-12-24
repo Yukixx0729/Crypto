@@ -3,12 +3,14 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 const CryptoData = () => {
+  const [isPending, setIsPending] = useState(false);
   const { cryptoname } = useParams();
   const location = useLocation();
   const [cryptoData, setCryptoData] = useState(null);
   const navigate = useNavigate();
   useEffect(() => {
     const fetchCryptoname = async () => {
+      setIsPending(true);
       const date = location.state?.date;
       if (date) {
         const res = await fetch(
@@ -16,12 +18,16 @@ const CryptoData = () => {
         );
         const data = await res.json();
         setCryptoData(data);
+        setIsPending(false);
+      } else {
+        setIsPending(false);
       }
     };
     fetchCryptoname();
   }, []);
   return (
     <>
+      {isPending && <p>Loading...</p>}
       {cryptoData && (
         <div className="crypto-container">
           <h2>Crypto: {cryptoData.name}</h2>
@@ -48,6 +54,18 @@ const CryptoData = () => {
             <p>market cap: ${cryptoData.marketCap}</p>
           </div>
 
+          <button
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            Back to home page
+          </button>
+        </div>
+      )}
+      {!cryptoData && !isPending && (
+        <div className="crypto-container">
+          <p>Data not found.</p>
           <button
             onClick={() => {
               navigate("/");
