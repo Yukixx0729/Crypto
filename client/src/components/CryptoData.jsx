@@ -63,18 +63,6 @@ const CryptoData = () => {
           </button>
         </div>
       )}
-      {!cryptoData && !isPending && (
-        <div className="crypto-container">
-          <p>Data not found.</p>
-          <button
-            onClick={() => {
-              navigate("/");
-            }}
-          >
-            Back to home page
-          </button>
-        </div>
-      )}
     </>
   );
 };
