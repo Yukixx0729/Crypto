@@ -70,15 +70,16 @@ const DateData = ({ cryptoData, date }) => {
         field: "volume",
         sortable: true,
         valueFormatter: (params) => {
-          return `$${params.value}`;
+          return `$${params.value.toLocaleString()}`;
         },
       },
       {
         headerName: "Market Cap",
         field: "marketCap",
+        sort: "desc",
         sortable: true,
         valueFormatter: (params) => {
-          return `$${params.value}`;
+          return `$${params.value.toLocaleString()}`;
         },
       },
     ],
@@ -86,7 +87,10 @@ const DateData = ({ cryptoData, date }) => {
   });
 
   return (
-    <div className="ag-theme-quartz">
+    <div
+      className="ag-theme-quartz"
+      style={{ width: "100%", overflow: "hidden" }}
+    >
       <div style={{ width: "100%" }}>
         <AgGridReact {...gridOptions} />
       </div>

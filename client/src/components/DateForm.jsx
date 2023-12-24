@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import DateData from "./DateData";
-import { useLocation } from "react-router-dom";
+
 const DateForm = () => {
   const [date, setDate] = useState("");
-  const location = useLocation();
   const [error, setError] = useState(false);
   const [cryptoData, setCryptoData] = useState(null);
   const handleOnChange = (e) => {
     setDate(e.target.value);
+    localStorage.setItem("selectedDate", e.target.value);
   };
   const handleSumbit = async (e) => {
     e.preventDefault();
@@ -23,20 +23,23 @@ const DateForm = () => {
       setError(true);
     }
   };
+
   useEffect(() => {
     const handleBackHome = async () => {
-      const date = await location.state?.date;
-      if (date) {
-        setDate(date);
+      const storedDate = localStorage.getItem("selectedDate");
+
+      setDate(storedDate);
+      if (storedDate) {
+        // console.log(date, dateStore);
         const res = await fetch(
-          `https://energetic-rule-production.up.railway.app/api/crypto/date/${date}`
+          `https://energetic-rule-production.up.railway.app/api/crypto/date/${storedDate}`
         );
         const data = await res.json();
         setCryptoData(data);
       }
     };
     handleBackHome();
-  }, [location.state, setCryptoData]);
+  }, []);
   return (
     <>
       <div className="form-container">

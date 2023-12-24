@@ -42,6 +42,7 @@ h1 {
 .ag-theme-quartz {
   margin-top: 1.5rem;
   font-size: 13px;
+
   p {
     text-align: center;
   }
@@ -83,5 +84,14 @@ h1 {
   button:active {
     box-shadow: none;
     transform: scale3d(1px 2px);
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .crypto-container {
+    flex-direction: column;
+    .sub-container {
+      flex-direction: column;
+    }
   }
 }

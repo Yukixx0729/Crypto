@@ -6,7 +6,6 @@ const router = express.Router();
 //get all crypto data by date
 router.get("/date/:date", async (req, res) => {
   const { date } = req.params;
-
   const startDate = new Date(`${date}T00:00:00.000Z`);
   const endDate = new Date(`${date}T23:59:59.999Z`);
   try {
@@ -18,6 +17,8 @@ router.get("/date/:date", async (req, res) => {
         },
       },
     });
+    console.log(data);
+
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ error: "An error occurred ,please try later." });
@@ -35,7 +36,6 @@ router.get("/name/:name", async (req, res) => {
     const data = await prisma.data.findFirst({
       where: {
         name: name,
-
         date: {
           gte: startDate,
           lte: endDate,

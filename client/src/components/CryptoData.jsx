@@ -50,9 +50,7 @@ const CryptoData = () => {
 
           <button
             onClick={() => {
-              navigate("/", {
-                state: { date: cryptoData.date.slice(0, 10) },
-              });
+              navigate("/");
             }}
           >
             Back to home page
