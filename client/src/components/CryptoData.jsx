@@ -12,7 +12,7 @@ const CryptoData = () => {
       const date = location.state?.date;
       if (date) {
         const res = await fetch(
-          `http://localhost:3000/api/crypto/name/${cryptoname}?date=${date}`
+          `https://energetic-rule-production.up.railway.app/api/crypto/name/${cryptoname}?date=${date}`
         );
         const data = await res.json();
         setCryptoData(data);

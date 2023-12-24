@@ -14,7 +14,9 @@ const DateForm = () => {
     setCryptoData(null);
     setError(false);
     if (date.length) {
-      const res = await fetch(`http://localhost:3000/api/crypto/date/${date}`);
+      const res = await fetch(
+        `https://energetic-rule-production.up.railway.app/api/crypto/date/${date}`
+      );
       const data = await res.json();
       setCryptoData(data);
     } else {
@@ -24,10 +26,10 @@ const DateForm = () => {
   useEffect(() => {
     const handleBackHome = async () => {
       const date = await location.state?.date;
-      if (date.length) {
+      if (date) {
         setDate(date);
         const res = await fetch(
-          `http://localhost:3000/api/crypto/date/${date}`
+          `https://energetic-rule-production.up.railway.app/api/crypto/date/${date}`
         );
         const data = await res.json();
         setCryptoData(data);
