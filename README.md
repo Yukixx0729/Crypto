@@ -10,6 +10,8 @@ This demo was a take home project for a job interview to sort the raw data and d
 
 Check out <https://crypto-sigma-self.vercel.app/> for live demo.
 
+---
+
 ### **Technologies used**
 
 ---
