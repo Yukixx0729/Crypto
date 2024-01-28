@@ -2,7 +2,7 @@
 
 ### **Description**
 
-This demo was a take home project for a job interview to sort the raw data and display the data in a visable way. Spent roughly 2 days for it.
+This demo was a take home project for a job interview to sort the raw data and display the data in a visable way. Spent roughly 2 days for it. However, the App is not displaying due to disconnection of the server on railway(raw data is too large which costs me unexpected money).
 
 ---
 
