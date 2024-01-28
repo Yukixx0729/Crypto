@@ -1,5 +1,9 @@
 # Crypto
 
+### **Description**
+
+This demo was a take home project for a job interview to sort the raw data and display the data in a visable way. Spent roughly 2 days for it.
+
 ### **Live demo**
 
 Check out <https://crypto-sigma-self.vercel.app/> for live demo.
